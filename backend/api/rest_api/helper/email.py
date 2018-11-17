@@ -19,7 +19,7 @@ def helper_confirmation(username, recipient):
     mail = Mail(app)
     msg = Message("request received!", sender="info.youcmt@gmail.com", recipients=[recipient])
     msg.body = "Hi {}, we found someone who needs your help!".format(username)
-    msg.html = """<a href="www.givengaining.com/redirect?help=1">click here</a>"""
+    msg.html = """<p>Hi {}, we found someone who needs your help!</p><a href="www.givengaining.com/redirect?help=1">click here</a>""".format(username)
     try:
         mail.send(msg)
     except:

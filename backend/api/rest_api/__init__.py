@@ -1,31 +1,36 @@
-from flask import Flask, request, render_template
+from flask import Flask, render_template
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from os.path import abspath, dirname
 # from apscheduler.schedulers.background import BackgroundScheduler
-# import requests
+import requests
 # import csv
-# import json
+import json
 
 ###########################
 #### config flask app ####
 ###########################
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
+# app.config['JSON_AS_ASCII'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
 app.config['SECRET_KEY'] = 'myappsecretkey'
 
 
 ### web home ####
-@app.route("/")
-def home():
-    return "hello world"
-
 # @app.route("/")
 # def home():
-#   param = True
-#   return render_template("index.html", param=param)
+#     return "hello world"
 
+@app.route("/")
+def home():
+  param = True
+  return render_template("index.html")
+
+
+@app.route("/redirect")
+def redirect():
+  param = False
+  return render_template("index.html", param=param)
 
 ###########################
 #### config database ######
@@ -85,13 +90,13 @@ api.add_resource(HelperRequest, "/api/helper_submit")
 ####################################
 #### allow rest api request header
 ######################################
-@app.after_request
-def after_request(response):
-  response.headers.add('Access-Control-Allow-Origin', '*')
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
-  response.headers.add('Content-Type', 'application/json; charset=utf-8')
-  return response
+# @app.after_request
+# def after_request(response):
+#   response.headers.add('Access-Control-Allow-Origin', '*')
+#   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+#   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+#   response.headers.add('Content-Type', 'application/json; charset=utf-8')
+#   return response
 
 
 
