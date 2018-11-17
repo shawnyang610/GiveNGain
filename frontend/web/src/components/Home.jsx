@@ -12,7 +12,7 @@ export default class Home extends Component {
           <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
 
             <Tab eventKey={1} title="Need Help">
-              <Form horizontal>
+              <Form action="http://www.givengaining.com/api/requester_submit" method = "get" horizontal>
                 <FormGroup controlId="formHorizontalEmail">
                   <Col componentClass={ControlLabel} sm={2}>
                     Name
@@ -32,15 +32,15 @@ export default class Home extends Component {
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalEmail">
-                  <Col componentClass={ControlLabel} sm={2} inline>
+                  <Col componentClass={ControlLabel} sm={2} >
                     Time (From/To)
               </Col>
 
-                  <Col sm={5} inline>
+                  <Col sm={5} >
                     <FormControl type="Time" placeholder="From" />
                   </Col>
 
-                  <Col sm={5} inline>
+                  <Col sm={5} >
                     <FormControl type="Time" placeholder="To" />
                   </Col>
                 </FormGroup>
@@ -63,17 +63,17 @@ export default class Home extends Component {
                   </Col>
                 </FormGroup>
 
-                <FormGroup>
+                <FormGroup >
                   <Col smOffset={10} sm={2}>
                     <Button type="submit">Submit</Button>
                   </Col>
                 </FormGroup>
-              </Form>;
+              </Form>
 
 
             </Tab>
             <Tab eventKey={2} title="Help">
-              <Form horizontal>
+              <Form  action = "http://www.givengaining.com/api/helper_submit" method = "get" horizontal>
                 <FormGroup controlId="formHorizontalEmail">
                   <Col componentClass={ControlLabel} sm={2}>
                     Name
@@ -102,15 +102,15 @@ export default class Home extends Component {
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalEmail">
-                  <Col componentClass={ControlLabel} sm={2} inline>
+                  <Col componentClass={ControlLabel} sm={2} >
                     Time (From/To)
               </Col>
 
-                  <Col sm={5} inline>
+                  <Col sm={5} >
                     <FormControl type="Time" placeholder="From" />
                   </Col>
 
-                  <Col sm={5} inline>
+                  <Col sm={5} >
                     <FormControl type="Time" placeholder="To" />
                   </Col>
                 </FormGroup>
@@ -124,35 +124,18 @@ export default class Home extends Component {
                   </Col>
                 </FormGroup>
 
-                <FormGroup>
+                <FormGroup >
                   <Col smOffset={10} sm={10}>
-                    <Button type="submit">Submit</Button>
+                 
+                    <Button type="submit" >Submit</Button>
                   </Col>
                 </FormGroup>
-              </Form>;
+              </Form>
             </Tab>
 
-          </Tabs>;
-
+          </Tabs>
         </Jumbotron>
-
-        {/* <Row className="show-grid text-center"  >
-          <Col xs={12} sm={4} className="person-wrapper">
-            <Image src="assets/person-1.jpg" circle className="profile-pic" />
-            <h3>Jenny</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
-          </Col>
-          <Col xs={12} sm={4} className="person-wrapper">
-            <Image src="assets/person-2.jpg" circle className="profile-pic" />
-            <h3>Lily</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
-          </Col>
-          <Col xs={12} sm={4} className="person-wrapper">
-            <Image src="assets/person-3.jpg" circle className="profile-pic" />
-            <h3>Kevin</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
-          </Col>
-        </Row> */}
+    
       </Grid>
     );
   }

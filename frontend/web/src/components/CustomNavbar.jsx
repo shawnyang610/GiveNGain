@@ -16,15 +16,7 @@ export default class CustomeNavbar extends Component {
 
         <Navbar.Collapse>
           <Nav pullRight>
-            {/* <NavItem eventKey ={1} compoentClass = {Link} href="/" tp="/">
-            Home
-          </NavItem>
-          <NavItem eventKey ={2} compoentClass = {Link} href="/about" tp="/about">
-            Need Help 
-          </NavItem>
-          <NavItem eventKey ={3} compoentClass = {Link} href="/news" tp="/news">
-            Help
-          </NavItem> */}
+           
             <NavDropdown eventKey={3} title="Hi John!" id="basic-nav-dropdown">
               <MenuItem eventKey={3.1}>Profile</MenuItem>
               <MenuItem eventKey={3.2}>History</MenuItem>
