@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from os.path import abspath, dirname
@@ -21,6 +21,11 @@ app.config['SECRET_KEY'] = 'myappsecretkey'
 def home():
     return "hello world"
 
+# @app.route("/")
+# def home():
+#   param = True
+#   return render_template("index.html", param=param)
+
 
 ###########################
 #### config database ######
@@ -38,8 +43,15 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-
-
+######################
+#### Mail relay ######
+######################
+app.config["MAIL_SERVER"]="smtp.gmail.com"
+app.config["MAIL_PORT"]=465
+app.config["MAIL_USE_TLS"] = False
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = "info.youcmt@gmail.com"
+app.config["MAIL_PASSWORD"] = "Youcmtcmt"
 
 
 ########################
@@ -54,8 +66,10 @@ db = SQLAlchemy(app)
 ###########################
 api = Api(app)
 
-# from rest_api.resources.env import DateTime # noqa
-# api.add_resource(DateTime, "/api/datetime")
+from rest_api.resources.requests import RequesterRequest, HelperRequest # noqa
+api.add_resource(RequesterRequest, "/api/requester_submit")
+api.add_resource(HelperRequest, "/api/helper_submit")
+
 
 # from rest_api.resources.user import UserRegister, UserInfo # noqa
 # api.add_resource(UserRegister, "/api/user/register")
