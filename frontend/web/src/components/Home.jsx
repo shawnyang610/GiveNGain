@@ -24,20 +24,6 @@ export default class Home extends Component {
     });
     
   }
-  // setResumeData(){
-  //   $.ajax({
-  //     url:'http://www.givengaining.com/api/helper_submit',
-      
-  //     dataType:'json',
-  //     cache: false,
-  //     success: function(data){
-  //       this.setState({});
-
-  //     }.bind(this),
-     
-  //   });
-    
-  // }
 
   componentDidMount(){
     this.getResumeData();
@@ -50,7 +36,7 @@ export default class Home extends Component {
     return (
       <Grid>
         <Jumbotron className="jumbo">
-
+          <h3> Hi John!</h3>
           <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
 
             <Tab eventKey={1} title="Need Help">
@@ -78,7 +64,7 @@ export default class Home extends Component {
                     Date
               </Col>
                   <Col sm={10}>
-                    <FormControl type="Date" placeholder="Date" value="11/17/2018"/>
+                    <FormControl type="Text" placeholder="Date" value="11/17/2018"/>
                   </Col>
                 </FormGroup>
                 <FormGroup controlId="formHorizontalEmail">
@@ -88,11 +74,11 @@ export default class Home extends Component {
               </Col>
 
                   <Col sm={5} >
-                    <FormControl type="Time" placeholder="From" value ="12:00 PM"/>
+                    <FormControl type="Text" placeholder="From" value ="12:00 PM"/>
                   </Col>
 
                   <Col sm={5} >
-                    <FormControl type="Time" placeholder="To" value="06:00 PM"/>
+                    <FormControl type="Text" placeholder="To" value="06:00 PM"/>
                   </Col>
                 </FormGroup>
 
@@ -101,7 +87,7 @@ export default class Home extends Component {
                     Language
               </Col>
                   <Col sm={10}>
-                    <FormControl type="Language" placeholder="Language" value="Russian"/>
+                    <FormControl type="Language" placeholder="Language"/>
                   </Col>
                 </FormGroup>
 
@@ -157,7 +143,7 @@ export default class Home extends Component {
                     Date
               </Col>
                   <Col sm={10}>
-                    <FormControl type="Date" placeholder="Date" />
+                    <FormControl type="Text" placeholder="Date" />
                   </Col>
                 </FormGroup>
 
@@ -167,11 +153,11 @@ export default class Home extends Component {
               </Col>
 
                   <Col sm={5} >
-                    <FormControl type="Time" placeholder="From" />
+                    <FormControl type="Text" placeholder="From" />
                   </Col>
 
                   <Col sm={5} >
-                    <FormControl type="Time" placeholder="To" />
+                    <FormControl type="Text" placeholder="To" />
                   </Col>
                 </FormGroup>
 

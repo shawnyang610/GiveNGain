@@ -11,3 +11,12 @@
     float:left;
     margin: 0 1em 1em 0;
 }
+
+h2{
+    color: #408000;
+    size: 28px;
+}
+h3{
+    color: #408000;
+    margin-bottom: 1em;
+}

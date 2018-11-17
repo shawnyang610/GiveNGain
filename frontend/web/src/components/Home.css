@@ -13,6 +13,10 @@
     width: 800px;
   
 }
+
+.Tab{
+    color: #408000;
+}
 /* 
 .person-wrapper{
     margin-bottom: 2em;
@@ -38,6 +42,6 @@ h2{
     size: 28px;
 }
 h3{
-    color: #2892d7;
+    color: #408000;
     margin-bottom: 1em;
 }
