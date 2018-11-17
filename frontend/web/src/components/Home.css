@@ -1,0 +1,43 @@
+.jumbotron{
+    margin-bottom: 4em;
+}
+
+
+
+.jumbotron {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border: 3px solid #408000;
+    transform: translate(-50%, -50%);
+    width: 800px;
+  
+}
+/* 
+.person-wrapper{
+    margin-bottom: 2em;
+}
+.person-wrapper img{
+    width: 200px;
+    height: 200px;
+}
+
+profile-pic {
+    width: 50%;
+} */
+
+.btn-primary{
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    background-color: #408000;
+}
+
+h2{
+    color: #408000;
+    size: 28px;
+}
+h3{
+    color: #2892d7;
+    margin-bottom: 1em;
+}
