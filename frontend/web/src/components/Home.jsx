@@ -1,10 +1,52 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import $ from 'jquery';
 import { Jumbotron, Grid, Row, Col, Image, Button, Tabs, Tab, Form, FormControl, FormGroup, ControlLabel } from 'react-bootstrap';
 import './Home.css';
 
 export default class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+    }
+  }
+  getResumeData(){
+    $.ajax({
+      url:'http://www.givengaining.com/api/requester_submit',
+      
+      dataType:'json',
+      cache: false,
+      success: function(data){
+        this.setState({});
+
+      }.bind(this),
+     
+    });
+    
+  }
+  // setResumeData(){
+  //   $.ajax({
+  //     url:'http://www.givengaining.com/api/helper_submit',
+      
+  //     dataType:'json',
+  //     cache: false,
+  //     success: function(data){
+  //       this.setState({});
+
+  //     }.bind(this),
+     
+  //   });
+    
+  // }
+
+  componentDidMount(){
+    this.getResumeData();
+    // this.setResumeData();
+  }
+
   render() {
+
+    
     return (
       <Grid>
         <Jumbotron className="jumbo">
@@ -12,13 +54,14 @@ export default class Home extends Component {
           <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
 
             <Tab eventKey={1} title="Need Help">
-              <Form action="http://www.givengaining.com/api/requester_submit" method = "get" horizontal>
+             <Form id = "myFormId"  horizontal>
+            
                 <FormGroup controlId="formHorizontalEmail">
                   <Col componentClass={ControlLabel} sm={2}>
                     Name
               </Col>
                   <Col sm={10}>
-                    <FormControl type="Name" placeholder="Name" />
+                    <FormControl type="Name" placeholder="Name" value="John Doe"/>
                   </Col>
                 </FormGroup>
 
@@ -27,21 +70,29 @@ export default class Home extends Component {
                     Location
               </Col>
                   <Col sm={10}>
-                    <FormControl type="Location" placeholder="Location" />
+                    <FormControl type="Location" placeholder="Location" value="6530 Kissena Blvd, Flushing, NY 11367" />
                   </Col>
                 </FormGroup>
-
+                <FormGroup controlId="formHorizontalPassword">
+                  <Col componentClass={ControlLabel} sm={2}>
+                    Date
+              </Col>
+                  <Col sm={10}>
+                    <FormControl type="Date" placeholder="Date" value="11/17/2018"/>
+                  </Col>
+                </FormGroup>
                 <FormGroup controlId="formHorizontalEmail">
+
                   <Col componentClass={ControlLabel} sm={2} >
                     Time (From/To)
               </Col>
 
                   <Col sm={5} >
-                    <FormControl type="Time" placeholder="From" />
+                    <FormControl type="Time" placeholder="From" value ="12:00 PM"/>
                   </Col>
 
                   <Col sm={5} >
-                    <FormControl type="Time" placeholder="To" />
+                    <FormControl type="Time" placeholder="To" value="06:00 PM"/>
                   </Col>
                 </FormGroup>
 
@@ -50,13 +101,13 @@ export default class Home extends Component {
                     Language
               </Col>
                   <Col sm={10}>
-                    <FormControl type="Language" placeholder="Language" />
+                    <FormControl type="Language" placeholder="Language" value="Russian"/>
                   </Col>
                 </FormGroup>
 
                 <FormGroup controlId="formControlTextarea">
-                <Col componentClass={ControlLabel} sm={2}>
-                  <ControlLabel>Type of Help Needed</ControlLabel>
+                  <Col componentClass={ControlLabel} sm={2}>
+                    <ControlLabel>Type of Help Needed</ControlLabel>
                   </Col>
                   <Col sm={10}>
                     <FormControl componentClass="textarea" placeholder="Type of Help Needed" />
@@ -73,7 +124,7 @@ export default class Home extends Component {
 
             </Tab>
             <Tab eventKey={2} title="Help">
-              <Form  action = "http://www.givengaining.com/api/helper_submit" method = "get" horizontal>
+              <Form action="http://www.givengaining.com/api/helper_submit" method="get" horizontal>
                 <FormGroup controlId="formHorizontalEmail">
                   <Col componentClass={ControlLabel} sm={2}>
                     Name
@@ -94,10 +145,19 @@ export default class Home extends Component {
 
                 <FormGroup controlId="formHorizontalPassword">
                   <Col componentClass={ControlLabel} sm={2}>
-                    Radius
+                    Distance
               </Col>
                   <Col sm={10}>
-                    <FormControl type="Radius" placeholder="Radius" />
+                    <FormControl type="Distance" placeholder="Distance" />
+                  </Col>
+                </FormGroup>
+
+                <FormGroup controlId="formHorizontalPassword">
+                  <Col componentClass={ControlLabel} sm={2}>
+                    Date
+              </Col>
+                  <Col sm={10}>
+                    <FormControl type="Date" placeholder="Date" />
                   </Col>
                 </FormGroup>
 
@@ -117,17 +177,18 @@ export default class Home extends Component {
 
                 <FormGroup controlId="formHorizontalEmail">
                   <Col componentClass={ControlLabel} sm={2}>
-                    Language
+                    Desired Language
               </Col>
                   <Col sm={10}>
-                    <FormControl type="Language" placeholder="Language" />
+                    <FormControl type="Language" placeholder="Desired Language" />
                   </Col>
                 </FormGroup>
 
                 <FormGroup >
                   <Col smOffset={10} sm={10}>
-                 
-                    <Button type="submit" >Submit</Button>
+
+                    <Button id = "mybt" value="Submitted" type="button" onclick='alert{"submitted"}' >Submit</Button>
+                    
                   </Col>
                 </FormGroup>
               </Form>
@@ -135,7 +196,7 @@ export default class Home extends Component {
 
           </Tabs>
         </Jumbotron>
-    
+
       </Grid>
     );
   }

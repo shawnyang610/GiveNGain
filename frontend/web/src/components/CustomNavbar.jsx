@@ -16,13 +16,12 @@ export default class CustomeNavbar extends Component {
 
         <Navbar.Collapse>
           <Nav pullRight>
-           
+
             <NavDropdown eventKey={3} title="Hi John!" id="basic-nav-dropdown">
               <MenuItem eventKey={3.1}>Profile</MenuItem>
               <MenuItem eventKey={3.2}>History</MenuItem>
-              <MenuItem eventKey={3.3}>Something else here</MenuItem>
               <MenuItem divider />
-              <MenuItem eventKey={3.4}>Sign Out</MenuItem>
+              <MenuItem eventKey={3.4} href="/about" tp="/about">Sign Out</MenuItem>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
