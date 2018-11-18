@@ -6,16 +6,16 @@ from rest_api.helper.email import requester_confirmation, helper_confirmation
 
 
 class RequesterRequest(Resource):
-    def post(self):
-        requester_confirmation("Shawn", "shawnyang610@gmail.com")
+    def get(self):
+        requester_confirmation("John Doe", "shawnyang610@gmail.com")
         return {
             "message":"message sent."
         },200
 
 
 class HelperRequest(Resource):
-    def post(self):
-        helper_confirmation("MD", "shawnyang610@gmail.com")
+    def get(self):
+        helper_confirmation("Shawn Y", "shawnyang610@gmail.com")
         return {
             "message":"message sent."
         },200
